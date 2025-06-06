@@ -2,6 +2,11 @@
 
 A simple Booking API for a fictional fitness studio built with **Python**, **Django**, and **Django REST Framework**.
 
+## Documentation
+
+Detailed project documentation is available [here](https://tejaswitaw.github.io/fitness_studio/).
+
+
 ## 🚀 Features
 
 - View upcoming fitness classes
@@ -77,7 +82,7 @@ Server will run at: http://127.0.0.1:8000
 ## 📬 API Endpoints
 
 All endpoints are prefixed with `/api/`
----
+
 ### ✅ View All Upcoming Classes
 
 **GET** `/api/classes/`  
@@ -109,7 +114,7 @@ Optional: filter by time zone
 
 🔗 **Example:** [http://127.0.0.1:8000/api/bookings/?email=abc@gmail.com](http://127.0.0.1:8000/api/bookings/?email=abc@gmail.com)
 
----
+
 
 ### 👥 View All Clients
 
@@ -121,7 +126,7 @@ Optional: filter by time zone
 
 All endpoints can be tested using **Postman** or any other REST client of your choice.
 
----
+
 
 ### 👩‍💻 Author
 
