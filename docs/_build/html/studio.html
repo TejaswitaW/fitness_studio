@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>studio package &#8212; Fitness Studio 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="studio-package">
+<h1>studio package<a class="headerlink" href="#studio-package" title="Link to this heading">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="studio.migrations.html">studio.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="studio.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.migrations.html#module-studio.migrations.0001_initial">studio.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="studio.migrations.html#studio.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="studio.migrations.html#studio.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="studio.migrations.html#studio.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="studio.migrations.html#studio.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="studio.migrations.html#module-studio.migrations">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="studio.tests.html">studio.tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="studio.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.tests.html#module-studio.tests.test_booking">studio.tests.test_booking module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="studio.tests.html#studio.tests.test_booking.test_booking_with_no_slots"><code class="docutils literal notranslate"><span class="pre">test_booking_with_no_slots()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="studio.tests.html#studio.tests.test_booking.test_get_bookings_by_email"><code class="docutils literal notranslate"><span class="pre">test_get_bookings_by_email()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="studio.tests.html#studio.tests.test_booking.test_successful_booking"><code class="docutils literal notranslate"><span class="pre">test_successful_booking()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="studio.tests.html#module-studio.tests.test_classes">studio.tests.test_classes module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="studio.tests.html#studio.tests.test_classes.test_get_classes_with_timezone_filter"><code class="docutils literal notranslate"><span class="pre">test_get_classes_with_timezone_filter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="studio.tests.html#studio.tests.test_classes.test_get_upcoming_fitness_classes"><code class="docutils literal notranslate"><span class="pre">test_get_upcoming_fitness_classes()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="studio.tests.html#module-studio.tests.test_clients">studio.tests.test_clients module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="studio.tests.html#studio.tests.test_clients.test_get_all_clients"><code class="docutils literal notranslate"><span class="pre">test_get_all_clients()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="studio.tests.html#module-studio.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-studio.admin">
+<span id="studio-admin-module"></span><h2>studio.admin module<a class="headerlink" href="#module-studio.admin" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-studio.apps">
+<span id="studio-apps-module"></span><h2>studio.apps module<a class="headerlink" href="#module-studio.apps" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.apps.StudioConfig">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">studio.apps.</span></span><span class="sig-name descname"><span class="pre">StudioConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/apps.html#StudioConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.apps.StudioConfig" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.apps.StudioConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#studio.apps.StudioConfig.default_auto_field" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.apps.StudioConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'studio'</span></em><a class="headerlink" href="#studio.apps.StudioConfig.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-studio.conftest">
+<span id="studio-conftest-module"></span><h2>studio.conftest module<a class="headerlink" href="#module-studio.conftest" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="studio.conftest.api_client">
+<span class="sig-prename descclassname"><span class="pre">studio.conftest.</span></span><span class="sig-name descname"><span class="pre">api_client</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/conftest.html#api_client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.conftest.api_client" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-studio.models">
+<span id="studio-models-module"></span><h2>studio.models module<a class="headerlink" href="#module-studio.models" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.models.Booking">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">studio.models.</span></span><span class="sig-name descname"><span class="pre">Booking</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/models.html#Booking"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.models.Booking" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Represents a booking made by a client for a specific fitness class.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>fitness_class (ForeignKey): The fitness class that is booked.
+client (ForeignKey): The client who made the booking.</p>
+</dd>
+</dl>
+<p>The <cite>related_name=”bookings”</cite> on client allows reverse lookup of all bookings by a client.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="studio.models.Booking.DoesNotExist">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#studio.models.Booking.DoesNotExist" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="studio.models.Booking.MultipleObjectsReturned">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#studio.models.Booking.MultipleObjectsReturned" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.Booking.client">
+<span class="sig-name descname"><span class="pre">client</span></span><a class="headerlink" href="#studio.models.Booking.client" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.Booking.client_id">
+<span class="sig-name descname"><span class="pre">client_id</span></span><a class="headerlink" href="#studio.models.Booking.client_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.Booking.fitness_class">
+<span class="sig-name descname"><span class="pre">fitness_class</span></span><a class="headerlink" href="#studio.models.Booking.fitness_class" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.Booking.fitness_class_id">
+<span class="sig-name descname"><span class="pre">fitness_class_id</span></span><a class="headerlink" href="#studio.models.Booking.fitness_class_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.Booking.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#studio.models.Booking.id" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.Booking.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#studio.models.Booking.objects" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.models.Client">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">studio.models.</span></span><span class="sig-name descname"><span class="pre">Client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/models.html#Client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.models.Client" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Represents a client who books fitness classes.</p>
+<p>Stores the client’s name and a unique email address used for identification
+and communication. One client can book multiple fitness classes.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="studio.models.Client.DoesNotExist">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#studio.models.Client.DoesNotExist" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="studio.models.Client.MultipleObjectsReturned">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#studio.models.Client.MultipleObjectsReturned" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.Client.bookings">
+<span class="sig-name descname"><span class="pre">bookings</span></span><a class="headerlink" href="#studio.models.Client.bookings" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.Client.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#studio.models.Client.email" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.Client.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#studio.models.Client.id" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.Client.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#studio.models.Client.name" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.Client.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#studio.models.Client.objects" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.models.FitnessClass">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">studio.models.</span></span><span class="sig-name descname"><span class="pre">FitnessClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/models.html#FitnessClass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.models.FitnessClass" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Represents a fitness class offered by the studio.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>class_name (str): The type of fitness class (e.g., Yoga, Zumba, HIIT).
+instructor (str): Name of the instructor conducting the class.
+available_slots (int): Number of spots available for clients to book.
+start_time (datetime): Date and time when the class starts.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.FitnessClass.CLASS_CHOICES">
+<span class="sig-name descname"><span class="pre">CLASS_CHOICES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('Yoga',</span> <span class="pre">'Yoga'),</span> <span class="pre">('Zumba',</span> <span class="pre">'Zumba'),</span> <span class="pre">('HIIT',</span> <span class="pre">'HIIT')]</span></em><a class="headerlink" href="#studio.models.FitnessClass.CLASS_CHOICES" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="studio.models.FitnessClass.DoesNotExist">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#studio.models.FitnessClass.DoesNotExist" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="studio.models.FitnessClass.MultipleObjectsReturned">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#studio.models.FitnessClass.MultipleObjectsReturned" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.FitnessClass.available_slots">
+<span class="sig-name descname"><span class="pre">available_slots</span></span><a class="headerlink" href="#studio.models.FitnessClass.available_slots" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.FitnessClass.booking_set">
+<span class="sig-name descname"><span class="pre">booking_set</span></span><a class="headerlink" href="#studio.models.FitnessClass.booking_set" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.FitnessClass.class_name">
+<span class="sig-name descname"><span class="pre">class_name</span></span><a class="headerlink" href="#studio.models.FitnessClass.class_name" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="studio.models.FitnessClass.get_class_name_display">
+<span class="sig-name descname"><span class="pre">get_class_name_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">class_name&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#studio.models.FitnessClass.get_class_name_display" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="studio.models.FitnessClass.get_next_by_start_time">
+<span class="sig-name descname"><span class="pre">get_next_by_start_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">start_time&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#studio.models.FitnessClass.get_next_by_start_time" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="studio.models.FitnessClass.get_previous_by_start_time">
+<span class="sig-name descname"><span class="pre">get_previous_by_start_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">start_time&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#studio.models.FitnessClass.get_previous_by_start_time" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.FitnessClass.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#studio.models.FitnessClass.id" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.FitnessClass.instructor">
+<span class="sig-name descname"><span class="pre">instructor</span></span><a class="headerlink" href="#studio.models.FitnessClass.instructor" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.FitnessClass.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#studio.models.FitnessClass.objects" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.models.FitnessClass.start_time">
+<span class="sig-name descname"><span class="pre">start_time</span></span><a class="headerlink" href="#studio.models.FitnessClass.start_time" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-studio.serializers">
+<span id="studio-serializers-module"></span><h2>studio.serializers module<a class="headerlink" href="#module-studio.serializers" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.serializers.BookingReadSerializer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">studio.serializers.</span></span><span class="sig-name descname"><span class="pre">BookingReadSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/serializers.html#BookingReadSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.serializers.BookingReadSerializer" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for reading Booking details.</p>
+<p>Includes:
+- Nested fitness_class details serialized by FitnessClassSerializer.
+- Client’s email address accessed via the related Client model.</p>
+<p>Fields:
+- id: Booking identifier.
+- fitness_class: Serialized fitness class information.
+- client_email: Email of the client who made the booking (read-only).</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.serializers.BookingReadSerializer.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/studio/serializers.html#BookingReadSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.serializers.BookingReadSerializer.Meta" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.serializers.BookingReadSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'fitness_class',</span> <span class="pre">'client_email']</span></em><a class="headerlink" href="#studio.serializers.BookingReadSerializer.Meta.fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.serializers.BookingReadSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#studio.serializers.BookingReadSerializer.Meta.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#studio.models.Booking" title="studio.models.Booking"><code class="xref py py-class docutils literal notranslate"><span class="pre">Booking</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.serializers.BookingSerializer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">studio.serializers.</span></span><span class="sig-name descname"><span class="pre">BookingSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/serializers.html#BookingSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.serializers.BookingSerializer" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for handling Booking creation requests.</p>
+<p>This serializer accepts the following write-only fields:
+- class_id: ID of the FitnessClass to book.
+- client_name: Name of the client making the booking.
+- client_email: Email of the client making the booking.</p>
+<p>Validation:
+- Ensures the FitnessClass with the given class_id exists.
+- Checks if there are available slots in the requested FitnessClass.</p>
+<p>Creation:
+- Fetches or creates a Client based on the provided email and name.
+- Decrements the available slots count for the FitnessClass.
+- Creates a Booking associating the Client and FitnessClass.</p>
+<p>Logging is used extensively to track validation failures, client creation,
+slot decrementing, and booking creation.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.serializers.BookingSerializer.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/studio/serializers.html#BookingSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.serializers.BookingSerializer.Meta" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.serializers.BookingSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['class_id',</span> <span class="pre">'client_name',</span> <span class="pre">'client_email']</span></em><a class="headerlink" href="#studio.serializers.BookingSerializer.Meta.fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.serializers.BookingSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#studio.serializers.BookingSerializer.Meta.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#studio.models.Booking" title="studio.models.Booking"><code class="xref py py-class docutils literal notranslate"><span class="pre">Booking</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="studio.serializers.BookingSerializer.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">validated_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/serializers.html#BookingSerializer.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.serializers.BookingSerializer.create" title="Link to this definition">¶</a></dt>
+<dd><p>Create a Booking instance after:
+- Fetching the FitnessClass.
+- Creating or retrieving the Client.
+- Decrementing the available slots for the FitnessClass.
+- Creating the Booking object.</p>
+<p>Logs detailed info and debug messages throughout the process.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="studio.serializers.BookingSerializer.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/serializers.html#BookingSerializer.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.serializers.BookingSerializer.validate" title="Link to this definition">¶</a></dt>
+<dd><p>Validate that the specified FitnessClass exists and has available slots.</p>
+<p>Raises ValidationError if:
+- FitnessClass does not exist.
+- No available slots remain.</p>
+<p>Logs warnings and info messages accordingly.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.serializers.CreateFitnessClassSerializer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">studio.serializers.</span></span><span class="sig-name descname"><span class="pre">CreateFitnessClassSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/serializers.html#CreateFitnessClassSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.serializers.CreateFitnessClassSerializer" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for creating a FitnessClass instance.</p>
+<p>Handles serialization and validation of the following fields:
+- class_name: Type of the fitness class (e.g., Yoga, Zumba, HIIT).
+- instructor: Name of the instructor.
+- start_time: Scheduled start date and time of the class.
+- available_slots: Number of available booking slots.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.serializers.CreateFitnessClassSerializer.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/studio/serializers.html#CreateFitnessClassSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.serializers.CreateFitnessClassSerializer.Meta" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.serializers.CreateFitnessClassSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['class_name',</span> <span class="pre">'instructor',</span> <span class="pre">'start_time',</span> <span class="pre">'available_slots']</span></em><a class="headerlink" href="#studio.serializers.CreateFitnessClassSerializer.Meta.fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.serializers.CreateFitnessClassSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#studio.serializers.CreateFitnessClassSerializer.Meta.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#studio.models.FitnessClass" title="studio.models.FitnessClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">FitnessClass</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.serializers.FitnessClassSerializer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">studio.serializers.</span></span><span class="sig-name descname"><span class="pre">FitnessClassSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/serializers.html#FitnessClassSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.serializers.FitnessClassSerializer" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for the FitnessClass model.</p>
+<p>Includes a custom read-only field <cite>start_time_local</cite> which converts
+the <cite>start_time</cite> of the class to the timezone specified in the request’s
+query parameters. Defaults to the server’s timezone if none provided.</p>
+<p>Fields:
+- id: Unique identifier of the fitness class.
+- class_name: Name/type of the fitness class (e.g., Yoga, Zumba, HIIT).
+- instructor: Name of the instructor.
+- start_time_local: Localized start time of the class as per the requested timezone.
+- available_slots: Number of available slots for booking.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.serializers.FitnessClassSerializer.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/studio/serializers.html#FitnessClassSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.serializers.FitnessClassSerializer.Meta" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.serializers.FitnessClassSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'class_name',</span> <span class="pre">'instructor',</span> <span class="pre">'start_time_local',</span> <span class="pre">'available_slots']</span></em><a class="headerlink" href="#studio.serializers.FitnessClassSerializer.Meta.fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.serializers.FitnessClassSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#studio.serializers.FitnessClassSerializer.Meta.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#studio.models.FitnessClass" title="studio.models.FitnessClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">FitnessClass</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="studio.serializers.FitnessClassSerializer.get_start_time_local">
+<span class="sig-name descname"><span class="pre">get_start_time_local</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/serializers.html#FitnessClassSerializer.get_start_time_local"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.serializers.FitnessClassSerializer.get_start_time_local" title="Link to this definition">¶</a></dt>
+<dd><p>Convert the <cite>start_time</cite> to the timezone provided in the request query parameter <cite>timezone</cite>.</p>
+<p>If no timezone is provided, defaults to the server’s timezone.</p>
+<p>Logs the conversion for debugging purposes.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.serializers.GetClientSerializer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">studio.serializers.</span></span><span class="sig-name descname"><span class="pre">GetClientSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/serializers.html#GetClientSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.serializers.GetClientSerializer" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for the Client model.</p>
+<p>Serializes the client’s name and email for API responses.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.serializers.GetClientSerializer.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/studio/serializers.html#GetClientSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.serializers.GetClientSerializer.Meta" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.serializers.GetClientSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['name',</span> <span class="pre">'email']</span></em><a class="headerlink" href="#studio.serializers.GetClientSerializer.Meta.fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.serializers.GetClientSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#studio.serializers.GetClientSerializer.Meta.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#studio.models.Client" title="studio.models.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-studio.urls">
+<span id="studio-urls-module"></span><h2>studio.urls module<a class="headerlink" href="#module-studio.urls" title="Link to this heading">¶</a></h2>
+<p>URL configuration for the Studio app.</p>
+<p>This module defines the API endpoints for managing fitness classes, bookings, and clients.</p>
+<section id="endpoints">
+<h3>Endpoints:<a class="headerlink" href="#endpoints" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>/classes/   : Lists upcoming fitness classes. (GET)</p></li>
+<li><p>/book/      : Allows clients to book a fitness class. (POST)</p></li>
+<li><p>/bookings/  : Retrieves bookings filtered by client email. (GET)</p></li>
+<li><p>/clients/   : Lists all registered clients. (GET)</p></li>
+</ul>
+<p>Each endpoint is connected to its corresponding class-based view in the <cite>views.py</cite> module.</p>
+</section>
+</section>
+<section id="module-studio.views">
+<span id="studio-views-module"></span><h2>studio.views module<a class="headerlink" href="#module-studio.views" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.views.BookFitnessClass">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">studio.views.</span></span><span class="sig-name descname"><span class="pre">BookFitnessClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/views.html#BookFitnessClass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.views.BookFitnessClass" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CreateAPIView</span></code></p>
+<p>API view to handle booking a fitness class.</p>
+<p>Uses BookingSerializer to validate and create a new booking record.
+Logs an info message upon successful booking creation indicating
+the client name, class name, and class start time.</p>
+<dl class="simple">
+<dt>Methods:</dt><dd><dl class="simple">
+<dt>perform_create(serializer):</dt><dd><p>Saves the booking instance and logs booking details.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="studio.views.BookFitnessClass.perform_create">
+<span class="sig-name descname"><span class="pre">perform_create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serializer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/views.html#BookFitnessClass.perform_create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.views.BookFitnessClass.perform_create" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.views.BookFitnessClass.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#studio.views.BookFitnessClass.serializer_class" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#studio.serializers.BookingSerializer" title="studio.serializers.BookingSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BookingSerializer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.views.BookingListByEmail">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">studio.views.</span></span><span class="sig-name descname"><span class="pre">BookingListByEmail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/views.html#BookingListByEmail"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.views.BookingListByEmail" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListAPIView</span></code></p>
+<p>API view to list all bookings made by a specific client email.</p>
+<p>Expects an ‘email’ query parameter in the request URL.
+If no email is provided, returns an empty queryset and logs a warning.
+Otherwise, returns bookings filtered by the client’s email, ordered by newest first.</p>
+<dl class="simple">
+<dt>Methods:</dt><dd><dl class="simple">
+<dt>get_queryset():</dt><dd><p>Retrieves the queryset of bookings for the specified client email.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="studio.views.BookingListByEmail.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/views.html#BookingListByEmail.get_queryset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.views.BookingListByEmail.get_queryset" title="Link to this definition">¶</a></dt>
+<dd><p>Get the list of items for this view.
+This must be an iterable, and may be a queryset.
+Defaults to using <cite>self.queryset</cite>.</p>
+<p>This method should always be used rather than accessing <cite>self.queryset</cite>
+directly, as <cite>self.queryset</cite> gets evaluated only once, and those results
+are cached for all subsequent requests.</p>
+<p>You may want to override this if you need to provide different
+querysets depending on the incoming request.</p>
+<p>(Eg. return a list of items that is specific to the user)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.views.BookingListByEmail.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#studio.views.BookingListByEmail.serializer_class" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#studio.serializers.BookingReadSerializer" title="studio.serializers.BookingReadSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BookingReadSerializer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.views.CreateFitnessClass">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">studio.views.</span></span><span class="sig-name descname"><span class="pre">CreateFitnessClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/views.html#CreateFitnessClass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.views.CreateFitnessClass" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CreateAPIView</span></code></p>
+<p>API view to create a new fitness class.</p>
+<p>Uses CreateFitnessClassSerializer for input validation and serialization.
+Logs an info message after successfully creating a new fitness class.</p>
+<dl class="simple">
+<dt>Methods:</dt><dd><dl class="simple">
+<dt>perform_create(serializer):</dt><dd><p>Saves the serializer and logs details about the created fitness class.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="studio.views.CreateFitnessClass.perform_create">
+<span class="sig-name descname"><span class="pre">perform_create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serializer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/views.html#CreateFitnessClass.perform_create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.views.CreateFitnessClass.perform_create" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.views.CreateFitnessClass.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#studio.views.CreateFitnessClass.serializer_class" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#studio.serializers.CreateFitnessClassSerializer" title="studio.serializers.CreateFitnessClassSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">CreateFitnessClassSerializer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.views.FitnessClassList">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">studio.views.</span></span><span class="sig-name descname"><span class="pre">FitnessClassList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/views.html#FitnessClassList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.views.FitnessClassList" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListAPIView</span></code></p>
+<p>API view to list all upcoming fitness classes.</p>
+<p>Filters fitness classes whose start_time is greater than or equal to the current time,
+ordering them by start_time in ascending order.</p>
+<p>Logs an info message indicating the time filter being applied.</p>
+<p>The serializer context includes the current request for timezone-aware serialization.</p>
+<dl class="simple">
+<dt>Methods:</dt><dd><dl class="simple">
+<dt>get_queryset():</dt><dd><p>Returns queryset of upcoming fitness classes.</p>
+</dd>
+<dt>get_serializer_context():</dt><dd><p>Provides additional context (request) to the serializer.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="studio.views.FitnessClassList.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/views.html#FitnessClassList.get_queryset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.views.FitnessClassList.get_queryset" title="Link to this definition">¶</a></dt>
+<dd><p>Get the list of items for this view.
+This must be an iterable, and may be a queryset.
+Defaults to using <cite>self.queryset</cite>.</p>
+<p>This method should always be used rather than accessing <cite>self.queryset</cite>
+directly, as <cite>self.queryset</cite> gets evaluated only once, and those results
+are cached for all subsequent requests.</p>
+<p>You may want to override this if you need to provide different
+querysets depending on the incoming request.</p>
+<p>(Eg. return a list of items that is specific to the user)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="studio.views.FitnessClassList.get_serializer_context">
+<span class="sig-name descname"><span class="pre">get_serializer_context</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/views.html#FitnessClassList.get_serializer_context"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.views.FitnessClassList.get_serializer_context" title="Link to this definition">¶</a></dt>
+<dd><p>Extra context provided to the serializer class.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.views.FitnessClassList.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#studio.views.FitnessClassList.serializer_class" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#studio.serializers.FitnessClassSerializer" title="studio.serializers.FitnessClassSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">FitnessClassSerializer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="studio.views.GetClientList">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">studio.views.</span></span><span class="sig-name descname"><span class="pre">GetClientList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/views.html#GetClientList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.views.GetClientList" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListAPIView</span></code></p>
+<p>API view to retrieve a list of all registered clients.</p>
+<p>Uses the GetClientSerializer to serialize Client instances.
+Logs an info message whenever the client list is fetched.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Queryset of all Client objects.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="studio.views.GetClientList.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/studio/views.html#GetClientList.get_queryset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#studio.views.GetClientList.get_queryset" title="Link to this definition">¶</a></dt>
+<dd><p>Get the list of items for this view.
+This must be an iterable, and may be a queryset.
+Defaults to using <cite>self.queryset</cite>.</p>
+<p>This method should always be used rather than accessing <cite>self.queryset</cite>
+directly, as <cite>self.queryset</cite> gets evaluated only once, and those results
+are cached for all subsequent requests.</p>
+<p>You may want to override this if you need to provide different
+querysets depending on the incoming request.</p>
+<p>(Eg. return a list of items that is specific to the user)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="studio.views.GetClientList.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#studio.views.GetClientList.serializer_class" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#studio.serializers.GetClientSerializer" title="studio.serializers.GetClientSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">GetClientSerializer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-studio">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-studio" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Fitness Studio</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Tejaswita Wakhure.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/studio.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>studio.tests.test_booking &#8212; Fitness Studio 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=27fed22d" />
+    <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for studio.tests.test_booking</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">model_bakery</span><span class="w"> </span><span class="kn">import</span> <span class="n">baker</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">studio.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Booking</span><span class="p">,</span> <span class="n">Client</span><span class="p">,</span> <span class="n">FitnessClass</span>
+
+
+<div class="viewcode-block" id="test_successful_booking">
+<a class="viewcode-back" href="../../../studio.tests.html#studio.tests.test_booking.test_successful_booking">[docs]</a>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">django_db</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_successful_booking</span><span class="p">(</span><span class="n">api_client</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test creating a successful booking for a fitness class with available slots.</span>
+
+<span class="sd">    - Creates a FitnessClass with 5 available slots.</span>
+<span class="sd">    - Posts booking data to the /api/book/ endpoint.</span>
+<span class="sd">    - Asserts that the response status is 201 Created.</span>
+<span class="sd">    - Checks that exactly one Booking object is created in the database.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fitness_class</span> <span class="o">=</span> <span class="n">baker</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">FitnessClass</span><span class="p">,</span> <span class="n">available_slots</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;class_id&quot;</span><span class="p">:</span> <span class="n">fitness_class</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="s2">&quot;client_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;client_email&quot;</span><span class="p">:</span> <span class="s2">&quot;alice@example.com&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">api_client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/api/book/&quot;</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span>
+    <span class="k">assert</span> <span class="n">Booking</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span></div>
+
+
+
+<div class="viewcode-block" id="test_booking_with_no_slots">
+<a class="viewcode-back" href="../../../studio.tests.html#studio.tests.test_booking.test_booking_with_no_slots">[docs]</a>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">django_db</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_booking_with_no_slots</span><span class="p">(</span><span class="n">api_client</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test that booking fails if the fitness class has no available slots.</span>
+
+<span class="sd">    - Creates a FitnessClass with 0 available slots.</span>
+<span class="sd">    - Attempts to book the class.</span>
+<span class="sd">    - Asserts the response status is 400 Bad Request.</span>
+<span class="sd">    - Confirms the error message contains &#39;No slots available&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fitness_class</span> <span class="o">=</span> <span class="n">baker</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">FitnessClass</span><span class="p">,</span> <span class="n">available_slots</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;class_id&quot;</span><span class="p">:</span> <span class="n">fitness_class</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="s2">&quot;client_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;client_email&quot;</span><span class="p">:</span> <span class="s2">&quot;bob@example.com&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">api_client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/api/book/&quot;</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">400</span>
+    <span class="k">assert</span> <span class="s2">&quot;No slots available&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="test_get_bookings_by_email">
+<a class="viewcode-back" href="../../../studio.tests.html#studio.tests.test_booking.test_get_bookings_by_email">[docs]</a>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">django_db</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_get_bookings_by_email</span><span class="p">(</span><span class="n">api_client</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test retrieving bookings filtered by client email.</span>
+
+<span class="sd">    - Creates a Client with a specific email.</span>
+<span class="sd">    - Creates 2 bookings associated with that client.</span>
+<span class="sd">    - Sends GET request to /api/bookings/?email=&lt;email&gt;.</span>
+<span class="sd">    - Asserts the response status is 200 OK.</span>
+<span class="sd">    - Confirms exactly 2 bookings are returned.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">baker</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">Client</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;test@example.com&quot;</span><span class="p">)</span>
+    <span class="n">baker</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">Booking</span><span class="p">,</span> <span class="n">client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span> <span class="n">_quantity</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">api_client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/api/bookings/?email=test@example.com&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span></div>
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Fitness Studio</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Tejaswita Wakhure.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

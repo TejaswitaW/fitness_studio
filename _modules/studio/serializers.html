@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>studio.serializers &#8212; Fitness Studio 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=27fed22d" />
+    <script src="../../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for studio.serializers</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">timezone</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pytz</span><span class="w"> </span><span class="kn">import</span> <span class="n">timezone</span> <span class="k">as</span> <span class="n">pytz_timezone</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rest_framework</span><span class="w"> </span><span class="kn">import</span> <span class="n">serializers</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Booking</span><span class="p">,</span> <span class="n">Client</span><span class="p">,</span> <span class="n">FitnessClass</span>
+
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="GetClientSerializer">
+<a class="viewcode-back" href="../../studio.html#studio.serializers.GetClientSerializer">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">GetClientSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for the Client model.</span>
+
+<span class="sd">    Serializes the client&#39;s name and email for API responses.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="GetClientSerializer.Meta">
+<a class="viewcode-back" href="../../studio.html#studio.serializers.GetClientSerializer.Meta">[docs]</a>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Client</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">]</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="CreateFitnessClassSerializer">
+<a class="viewcode-back" href="../../studio.html#studio.serializers.CreateFitnessClassSerializer">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">CreateFitnessClassSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for creating a FitnessClass instance.</span>
+
+<span class="sd">    Handles serialization and validation of the following fields:</span>
+<span class="sd">    - class_name: Type of the fitness class (e.g., Yoga, Zumba, HIIT).</span>
+<span class="sd">    - instructor: Name of the instructor.</span>
+<span class="sd">    - start_time: Scheduled start date and time of the class.</span>
+<span class="sd">    - available_slots: Number of available booking slots.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="CreateFitnessClassSerializer.Meta">
+<a class="viewcode-back" href="../../studio.html#studio.serializers.CreateFitnessClassSerializer.Meta">[docs]</a>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">FitnessClass</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;class_name&quot;</span><span class="p">,</span> <span class="s2">&quot;instructor&quot;</span><span class="p">,</span> <span class="s2">&quot;start_time&quot;</span><span class="p">,</span> <span class="s2">&quot;available_slots&quot;</span><span class="p">]</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="FitnessClassSerializer">
+<a class="viewcode-back" href="../../studio.html#studio.serializers.FitnessClassSerializer">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">FitnessClassSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for the FitnessClass model.</span>
+
+<span class="sd">    Includes a custom read-only field `start_time_local` which converts</span>
+<span class="sd">    the `start_time` of the class to the timezone specified in the request&#39;s</span>
+<span class="sd">    query parameters. Defaults to the server&#39;s timezone if none provided.</span>
+
+<span class="sd">    Fields:</span>
+<span class="sd">    - id: Unique identifier of the fitness class.</span>
+<span class="sd">    - class_name: Name/type of the fitness class (e.g., Yoga, Zumba, HIIT).</span>
+<span class="sd">    - instructor: Name of the instructor.</span>
+<span class="sd">    - start_time_local: Localized start time of the class as per the requested timezone.</span>
+<span class="sd">    - available_slots: Number of available slots for booking.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">start_time_local</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">SerializerMethodField</span><span class="p">()</span>
+
+<div class="viewcode-block" id="FitnessClassSerializer.Meta">
+<a class="viewcode-back" href="../../studio.html#studio.serializers.FitnessClassSerializer.Meta">[docs]</a>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">FitnessClass</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;class_name&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;instructor&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;start_time_local&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;available_slots&quot;</span><span class="p">,</span>
+        <span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="FitnessClassSerializer.get_start_time_local">
+<a class="viewcode-back" href="../../studio.html#studio.serializers.FitnessClassSerializer.get_start_time_local">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_start_time_local</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert the `start_time` to the timezone provided in the request query parameter `timezone`.</span>
+
+<span class="sd">        If no timezone is provided, defaults to the server&#39;s timezone.</span>
+
+<span class="sd">        Logs the conversion for debugging purposes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;request&quot;</span><span class="p">)</span>
+        <span class="n">tz_param</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">query_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;timezone&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">request</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="n">tz</span> <span class="o">=</span> <span class="n">pytz_timezone</span><span class="p">(</span><span class="n">tz_param</span><span class="p">)</span> <span class="k">if</span> <span class="n">tz_param</span> <span class="k">else</span> <span class="n">timezone</span><span class="o">.</span><span class="n">get_default_timezone</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Converting start_time &#39;</span><span class="si">{</span><span class="n">obj</span><span class="o">.</span><span class="n">start_time</span><span class="si">}</span><span class="s2">&#39; to timezone &#39;</span><span class="si">{</span><span class="n">tz</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">start_time</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">tz</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S %Z&quot;</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="BookingSerializer">
+<a class="viewcode-back" href="../../studio.html#studio.serializers.BookingSerializer">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">BookingSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for handling Booking creation requests.</span>
+
+<span class="sd">    This serializer accepts the following write-only fields:</span>
+<span class="sd">    - class_id: ID of the FitnessClass to book.</span>
+<span class="sd">    - client_name: Name of the client making the booking.</span>
+<span class="sd">    - client_email: Email of the client making the booking.</span>
+
+<span class="sd">    Validation:</span>
+<span class="sd">    - Ensures the FitnessClass with the given class_id exists.</span>
+<span class="sd">    - Checks if there are available slots in the requested FitnessClass.</span>
+
+<span class="sd">    Creation:</span>
+<span class="sd">    - Fetches or creates a Client based on the provided email and name.</span>
+<span class="sd">    - Decrements the available slots count for the FitnessClass.</span>
+<span class="sd">    - Creates a Booking associating the Client and FitnessClass.</span>
+
+<span class="sd">    Logging is used extensively to track validation failures, client creation,</span>
+<span class="sd">    slot decrementing, and booking creation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">class_id</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span>
+        <span class="n">write_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">error_messages</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="s2">&quot;class_id is required.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;invalid&quot;</span><span class="p">:</span> <span class="s2">&quot;class_id must be a valid integer.&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">)</span>
+    <span class="n">client_name</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+        <span class="n">write_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">allow_blank</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">error_messages</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;blank&quot;</span><span class="p">:</span> <span class="s2">&quot;client_name cannot be blank.&quot;</span><span class="p">},</span>
+    <span class="p">)</span>
+    <span class="n">client_email</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span>
+        <span class="n">write_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">allow_blank</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">error_messages</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;blank&quot;</span><span class="p">:</span> <span class="s2">&quot;client_email cannot be blank.&quot;</span><span class="p">},</span>
+    <span class="p">)</span>
+
+<div class="viewcode-block" id="BookingSerializer.Meta">
+<a class="viewcode-back" href="../../studio.html#studio.serializers.BookingSerializer.Meta">[docs]</a>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Booking</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;class_id&quot;</span><span class="p">,</span> <span class="s2">&quot;client_name&quot;</span><span class="p">,</span> <span class="s2">&quot;client_email&quot;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="BookingSerializer.validate">
+<a class="viewcode-back" href="../../studio.html#studio.serializers.BookingSerializer.validate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validate that the specified FitnessClass exists and has available slots.</span>
+
+<span class="sd">        Raises ValidationError if:</span>
+<span class="sd">        - FitnessClass does not exist.</span>
+<span class="sd">        - No available slots remain.</span>
+
+<span class="sd">        Logs warnings and info messages accordingly.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">class_id</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;class_id&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">class_id</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Validation failed: class_id is missing in the request.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">&quot;class_id is required.&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">fitness_class</span> <span class="o">=</span> <span class="n">FitnessClass</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">class_id</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">FitnessClass</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Validation failed: Fitness class with ID </span><span class="si">{</span><span class="n">class_id</span><span class="si">}</span><span class="s2"> does not exist.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">&quot;Fitness class does not exist.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">fitness_class</span><span class="o">.</span><span class="n">available_slots</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;No slots available for class ID </span><span class="si">{</span><span class="n">class_id</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">fitness_class</span><span class="o">.</span><span class="n">class_name</span><span class="si">}</span><span class="s2">).&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s2">&quot;No slots available.&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="BookingSerializer.create">
+<a class="viewcode-back" href="../../studio.html#studio.serializers.BookingSerializer.create">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">validated_data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a Booking instance after:</span>
+<span class="sd">        - Fetching the FitnessClass.</span>
+<span class="sd">        - Creating or retrieving the Client.</span>
+<span class="sd">        - Decrementing the available slots for the FitnessClass.</span>
+<span class="sd">        - Creating the Booking object.</span>
+
+<span class="sd">        Logs detailed info and debug messages throughout the process.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">class_id</span> <span class="o">=</span> <span class="n">validated_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;class_id&quot;</span><span class="p">)</span>
+        <span class="n">client_email</span> <span class="o">=</span> <span class="n">validated_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;client_email&quot;</span><span class="p">)</span>
+        <span class="n">client_name</span> <span class="o">=</span> <span class="n">validated_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;client_name&quot;</span><span class="p">)</span>
+
+        <span class="n">fitness_class</span> <span class="o">=</span> <span class="n">FitnessClass</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">class_id</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Fetched FitnessClass ID </span><span class="si">{</span><span class="n">class_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">fitness_class</span><span class="o">.</span><span class="n">class_name</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">fitness_class</span><span class="o">.</span><span class="n">available_slots</span><span class="si">}</span><span class="s2"> slots remaining.&quot;</span>
+        <span class="p">)</span>
+        <span class="n">client</span><span class="p">,</span> <span class="n">created</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span>
+            <span class="n">email</span><span class="o">=</span><span class="n">client_email</span><span class="p">,</span>
+            <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">client_name</span><span class="p">},</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">created</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New client created: </span><span class="si">{</span><span class="n">client_name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">client_email</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Existing client found: </span><span class="si">{</span><span class="n">client_name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">client_email</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+        <span class="n">fitness_class</span><span class="o">.</span><span class="n">available_slots</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">fitness_class</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Decremented slot for class &#39;</span><span class="si">{</span><span class="n">fitness_class</span><span class="o">.</span><span class="n">class_name</span><span class="si">}</span><span class="s2">&#39;. Remaining slots: </span><span class="si">{</span><span class="n">fitness_class</span><span class="o">.</span><span class="n">available_slots</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="n">booking</span> <span class="o">=</span> <span class="n">Booking</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">fitness_class</span><span class="o">=</span><span class="n">fitness_class</span><span class="p">,</span> <span class="n">client</span><span class="o">=</span><span class="n">client</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Booking created: Client &#39;</span><span class="si">{</span><span class="n">client</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; booked &#39;</span><span class="si">{</span><span class="n">fitness_class</span><span class="o">.</span><span class="n">class_name</span><span class="si">}</span><span class="s2">&#39; on </span><span class="si">{</span><span class="n">fitness_class</span><span class="o">.</span><span class="n">start_time</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">booking</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="BookingReadSerializer">
+<a class="viewcode-back" href="../../studio.html#studio.serializers.BookingReadSerializer">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">BookingReadSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for reading Booking details.</span>
+
+<span class="sd">    Includes:</span>
+<span class="sd">    - Nested fitness_class details serialized by FitnessClassSerializer.</span>
+<span class="sd">    - Client&#39;s email address accessed via the related Client model.</span>
+
+<span class="sd">    Fields:</span>
+<span class="sd">    - id: Booking identifier.</span>
+<span class="sd">    - fitness_class: Serialized fitness class information.</span>
+<span class="sd">    - client_email: Email of the client who made the booking (read-only).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">fitness_class</span> <span class="o">=</span> <span class="n">FitnessClassSerializer</span><span class="p">()</span>
+    <span class="n">client_email</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">&quot;client.email&quot;</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BookingReadSerializer.Meta">
+<a class="viewcode-back" href="../../studio.html#studio.serializers.BookingReadSerializer.Meta">[docs]</a>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Booking</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;fitness_class&quot;</span><span class="p">,</span> <span class="s2">&quot;client_email&quot;</span><span class="p">]</span></div>
+</div>
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Fitness Studio</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Tejaswita Wakhure.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
