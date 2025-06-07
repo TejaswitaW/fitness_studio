@@ -21,6 +21,7 @@ release = '1.0.0'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
+    'sphinx.ext.githubpages',
     # 'sphinx.ext.napoleon',  # Uncomment if using Google-style docstrings
     # 'myst_parser',  # Uncomment if using Markdown files
 ]
