@@ -16,7 +16,7 @@ from .serializers import (
 
 logger = logging.getLogger(__name__)
 
-
+# GET /clients/
 class GetClientList(generics.ListAPIView):
     """
     API view to retrieve a list of all registered clients.
@@ -55,7 +55,7 @@ class CreateFitnessClass(generics.CreateAPIView):
             f"New fitness class created: {instance.class_name} by instructor {instance.instructor} on {instance.start_time}"
         )
 
-
+# GET /classes/
 class FitnessClassList(generics.ListAPIView):
     """
     API view to list all upcoming fitness classes.
@@ -87,7 +87,7 @@ class FitnessClassList(generics.ListAPIView):
     def get_serializer_context(self):
         return {"request": self.request}
 
-
+# POST /book/
 class BookFitnessClass(generics.CreateAPIView):
     """
     API view to handle booking a fitness class.
@@ -109,7 +109,7 @@ class BookFitnessClass(generics.CreateAPIView):
             f"Booking created: Client '{booking.client.name}' booked '{booking.fitness_class.class_name}' on {booking.fitness_class.start_time}"
         )
 
-
+# GET /bookings/?email=abc@gmail.com
 class BookingListByEmail(generics.ListAPIView):
     """
     API view to list all bookings made by a specific client email.
